@@ -22,5 +22,8 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+<<<<<<< HEAD
 node_modules 
 dist 
+=======
+>>>>>>> 1343771 (sync local project with GitHub)
