@@ -186,7 +186,8 @@ export class AudioManager {
     // Auto-clean after burst completes
     setTimeout(() => {
       try { noise.disconnect(); filter.disconnect(); filter2.disconnect(); gain.disconnect(); } catch {}
-      this.wolfBreathNodes = this.wolfBreathNodes.filter(n => n !== noise && n !== filter && n !== filter2 && n !== gain);
+      this.wolfBreathNodes = this.wolfBreathNodes || [];
+	  this.wolfBreathNodes = this.wolfBreathNodes.filter(n => n !== noise && n !== filter && n !== filter2 && n !== gain);
     }, 300);
   }
 
