@@ -10,10 +10,6 @@
     "preview": "vite preview"
   },
   "dependencies": {
-<<<<<<< HEAD
-    "react": "^19.2.4",
-    "react-dom": "^19.2.4"
-=======
     "@fontsource/cormorant-garamond": "^5.2.11",
     "@fontsource/dm-sans": "^5.2.8",
     "@tailwindcss/vite": "^4.2.2",
@@ -25,7 +21,6 @@
     "react-dom": "^19.2.4",
     "tailwind-merge": "^3.5.0",
     "tailwindcss": "^4.2.2"
->>>>>>> 1343771 (sync local project with GitHub)
   },
   "devDependencies": {
     "@eslint/js": "^9.39.4",
