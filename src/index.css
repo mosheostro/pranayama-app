@@ -1,0 +1,151 @@
+@import "tailwindcss";
+@import "@fontsource/cormorant-garamond/400.css";
+@import "@fontsource/cormorant-garamond/600.css";
+@import "@fontsource/cormorant-garamond/400-italic.css";
+@import "@fontsource/dm-sans/300.css";
+@import "@fontsource/dm-sans/400.css";
+@import "@fontsource/dm-sans/500.css";
+
+/* ── Aurora (light) theme ─────────────────────────── */
+:root {
+  --bg:          #f0ebe0;
+  --bg2:         #e8e2d6;
+  --card:        #ffffff;
+  --card-border: rgba(150,138,118,.30);
+  /* HIGH-CONTRAST text — never light-on-light */
+  --text:        #1a2830;
+  --text2:       #2e4555;
+  --muted:       #5a6e7c;
+  --accent:      #2d5f6e;
+  --accent2:     #3d7a8a;
+  --accent-bg:   rgba(45,95,110,.10);
+  --btn-primary:      #2d5f6e;
+  --btn-primary-text: #ffffff;
+  --btn-secondary:    #ffffff;
+  --btn-secondary-text:   #1a2830;
+  --btn-secondary-border: rgba(150,138,118,.45);
+  --input-bg:     #ffffff;
+  --input-border: rgba(150,138,118,.45);
+  --ring1: rgba(60,130,155,.14);
+  --sphere-core: #c0d8e4;
+  --sphere-mid:  #98c0d0;
+  --phase-glow:  rgba(80,140,170,.20);
+  --shadow:   0 1px 12px rgba(0,0,0,.07);
+  --shadow-lg:0 4px 28px rgba(0,0,0,.11);
+  /* legacy aliases used by some components */
+  --c-surface: #ffffff;
+  --c-border:  rgba(150,138,118,.30);
+  --c-accent:  #2d5f6e;
+  --c-muted:   #5a6e7c;
+  --c-text:    #1a2830;
+}
+
+/* ── Dark theme ───────────────────────────────────── */
+[data-theme="dark"] {
+  --bg:          #0d1117;
+  --bg2:         #161b22;
+  --card:        #1c2333;
+  --card-border: rgba(255,255,255,.10);
+  --text:        #e6edf3;
+  --text2:       #8b949e;
+  --muted:       #6e7681;
+  --accent:      #58a6c8;
+  --accent2:     #79c0dd;
+  --accent-bg:   rgba(88,166,200,.12);
+  --btn-primary:      #58a6c8;
+  --btn-primary-text: #0d1117;
+  --btn-secondary:    #21262d;
+  --btn-secondary-text:   #e6edf3;
+  --btn-secondary-border: rgba(255,255,255,.15);
+  --input-bg:     #21262d;
+  --input-border: rgba(255,255,255,.15);
+  --ring1: rgba(88,166,200,.14);
+  --sphere-core: #1e3a4e;
+  --sphere-mid:  #2a4a5e;
+  --phase-glow:  rgba(88,166,200,.18);
+  --shadow:   0 1px 12px rgba(0,0,0,.30);
+  --shadow-lg:0 4px 28px rgba(0,0,0,.42);
+  --c-surface: #1c2333;
+  --c-border:  rgba(255,255,255,.10);
+  --c-accent:  #58a6c8;
+  --c-muted:   #6e7681;
+  --c-text:    #e6edf3;
+}
+
+/* ── Base ─────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; }
+html, body, #root { min-height: 100%; min-height: 100dvh; }
+body {
+  margin: 0;
+  font-family: "DM Sans", system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+  overscroll-behavior: none;
+}
+
+/* ── Typography ───────────────────────────────────── */
+.font-serif { font-family: "Cormorant Garamond", Georgia, serif; }
+
+/* ── Scrollbar ────────────────────────────────────── */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--card-border); border-radius: 2px; }
+
+/* ── Range input ──────────────────────────────────── */
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 4px;
+  border-radius: 2px;
+  background: var(--card-border);
+  outline: none;
+  cursor: pointer;
+  display: block;
+}
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 20px; height: 20px;
+  border-radius: 50%;
+  background: var(--accent);
+  border: 2px solid var(--card);
+  box-shadow: 0 1px 4px rgba(0,0,0,.15);
+  cursor: pointer;
+}
+input[type="range"]::-moz-range-thumb {
+  width: 20px; height: 20px;
+  border-radius: 50%;
+  background: var(--accent);
+  border: 2px solid var(--card);
+  cursor: pointer;
+}
+
+/* ── Select arrow ─────────────────────────────────── */
+select {
+  appearance: none;
+  -webkit-appearance: none;
+}
+select option { background: var(--card); color: var(--text); }
+
+/* ── Wolf Breath pulse animation ──────────────────── */
+@keyframes wolfPulse {
+  from { transform: scale(1);    box-shadow: inset 0 2px 8px rgba(255,255,255,.4), 0 3px 20px var(--phase-glow); }
+  to   { transform: scale(1.09); box-shadow: inset 0 2px 8px rgba(255,255,255,.5), 0 6px 32px var(--phase-glow); }
+}
+.wolf-pulse {
+  animation: wolfPulse .46s ease-in-out infinite alternate !important;
+}
+
+/* ── Safe area ────────────────────────────────────── */
+.safe-bottom { padding-bottom: max(1.5rem, env(safe-area-inset-bottom)); }
+.safe-top    { padding-top: max(1rem, env(safe-area-inset-top)); }
+
+/* ── Screen entrance ──────────────────────────────── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-up { animation: fadeUp 0.38s ease-out forwards; }
